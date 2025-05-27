@@ -1,4 +1,4 @@
-const { Telegraf } = require("telegraf");
+import { Telegraf } from "telegraf";
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 let participantes = new Set();
@@ -24,7 +24,7 @@ bot.command("sortear", (ctx) => {
   }
 });
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   if (req.method === "POST") {
     await bot.handleUpdate(req.body);
     res.status(200).send("ok");
